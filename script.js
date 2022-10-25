@@ -71,8 +71,25 @@ function playRound(playerSelection, computerSelection){
 function game()
 {
     let user;
+    let userScore = 0;
+    let computerScore = 0;
     for (let i = 0; i < 5; i++) {
         user = playerChoose();
-        playRound(user, getComputerChoice());
-     }
+        let rez=playRound(user, getComputerChoice());
+        if(rez == 1)
+        {
+            userScore++;
+        }
+        else if(rez == 2)
+        {
+            computerScore++;
+        }
+    }
+        if(userScore > computerScore)
+        console.log("The winner is User.");
+        else if(computerScore > userScore)
+        console.log("The winner is Computer.");
+        else
+        console.log("It's a Draw.");
+        console.log("Final Result is: User: " + userScore + "  Computer: " + computerScore);
 }
